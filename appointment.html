@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Scheduling</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        .success-message {
+            background-color: #2ecc71;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        button {
+            margin: 15px 0;
+            width: 100%;
+            height: 50px;
+            font-size: 18px;
+            line-height: 50px;
+            font-weight: 600;
+            background: #dde1e7;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: #000; /* Updated color to black */
+            box-shadow: 2px 2px 5px #BABECC,
+                -5px -5px 10px #ffffff73;
+            }
+            .btn-pay-now {
+            margin: 15px 0;
+            width: 100%;
+            height: 50px;
+            font-size: 18px;
+            line-height: 50px;
+            font-weight: 600;
+            background: #3498db;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: #fff;
+            box-shadow: 2px 2px 5px #BABECC, -5px -5px 10px #ffffff73;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Book an Appointment</h1>
+    </header>
+    <div class="container">
+        <form id="appointmentForm">
+            <div class="form-group">
+                <label for="name">Patient Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="doctorType">Select a Doctor Type:</label>
+                <select id="doctorType" name="doctorType" class="form-control" required>
+                    <option value="neurologist">Neurologist</option>
+                    <option value="psychiatrist">Psychiatrist</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" name="date" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Preferred Time:</label>
+                <select id="time" name="time" class="form-control" required>
+                    <option value="morning">Morning</option>
+                    <option value="afternoon">Afternoon</option>
+                    <option value="evening">Evening</option>
+                </select>
+            </div>
+
+            <button class="btn-pay-now">Submit</button>
+        </form>
+        <div class="success-message" id="successMessage" style="display:none;">
+            Your appointment will be confirm after successfull payment!<br>For payment click on the button below:-
+        </div>
+        <!-- <div class="payment">
+            
+            <button onclick="location.href = 'payment.html';" id="myButton" class="float-left submit-button" >Pay Now</button> -->
+            <div class="payment">
+                <button onclick="payNow();" class="btn-pay-now">Pay Now</button>
+            </div>
+        <div class="link">
+            <br>
+            <a href="main.html" class="hire">Go to Homepage</a>
+          </div>
+    </div>
+    
+
+    <!-- Link to Bootstrap JS and jQuery (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Here, you can add JavaScript code to handle form submission, such as sending data to a server and displaying a success message.
+            // You can use AJAX or fetch() to send data to the server.
+
+            // For demonstration purposes, we'll just show a success message.
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+        });
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Here, you can add JavaScript code to handle form submission, such as sending data to a server and displaying a success message.
+            // You can use AJAX or fetch() to send data to the server.
+
+            // For demonstration purposes, we'll just show a success message.
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+        });
+
+        function payNow() {
+            // Redirect to the payment page
+            window.location.href = 'payment.html';
+        }
+    </script>
+        
+</body>
+</html>

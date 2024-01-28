@@ -1,0 +1,99 @@
+import random
+
+def initialize_board(size):
+    board = [[0] * size for _ in range(size)]
+    numbers = list(range(1, size * size))
+    random.shuffle(numbers)
+    
+    for i in range(size):
+        for j in range(size):
+            if numbers:
+                board[i][j] = numbers.pop()
+    return board
+
+def print_board(board):
+    for row in board:
+        print(" ".join(map(str, row)))
+
+def get_empty_position(board):
+    size = len(board)
+    for i in range(size):
+        for j in range(size):
+            if board[i][j] == 0:
+                return i, j
+
+def is_solvable(board):
+    size = len(board)
+    flatten_board = [num for row in board for num in row if num != 0]
+    inversions = 0
+    
+    for i in range(len(flatten_board) - 1):
+        for j in range(i + 1, len(flatten_board)):
+            if flatten_board[i] > flatten_board[j]:
+                inversions += 1
+    
+    if size % 2 == 1:
+        return inversions % 2 == 0
+    else:
+        empty_row, _ = get_empty_position(board)
+        return (inversions % 2 == 0 and empty_row % 2 == 1) or (inversions % 2 == 1 and empty_row % 2 == 0)
+
+def move(board, direction):
+    empty_row, empty_col = get_empty_position(board)
+    size = len(board)
+
+    if direction == "up" and empty_row < size - 1:
+        board[empty_row][empty_col] = board[empty_row + 1][empty_col]
+        board[empty_row + 1][empty_col] = 0
+    elif direction == "down" and empty_row > 0:
+        board[empty_row][empty_col] = board[empty_row - 1][empty_col]
+        board[empty_row - 1][empty_col] = 0
+    elif direction == "left" and empty_col < size - 1:
+        board[empty_row][empty_col] = board[empty_row][empty_col + 1]
+        board[empty_row][empty_col + 1] = 0
+    elif direction == "right" and empty_col > 0:
+        board[empty_row][empty_col] = board[empty_row][empty_col - 1]
+        board[empty_row][empty_col - 1] = 0
+    else:
+        return False
+
+    return True
+
+def is_solved(board):
+    size = len(board)
+    current_num = 1
+
+    for i in range(size):
+        for j in range(size):
+            if board[i][j] != current_num:
+                return False
+            current_num = (current_num + 1) % (size * size)
+    
+    return True
+
+def main():
+    size = int(input("Enter the size of the puzzle (e.g., 3 for a 3x3 puzzle): "))
+    board = initialize_board(size)
+    
+    if not is_solvable(board):
+        print("The puzzle is not solvable.")
+        return
+    
+    print("Welcome to the Number Puzzle Game!")
+    print_board(board)
+    
+    while not is_solved(board):
+        direction = input("Enter direction (up, down, left, right, or 'quit' to exit): ").lower()
+        if direction == 'quit':
+            print("Thanks for playing!")
+            break
+        if move(board, direction):
+            print_board(board)
+        else:
+            print("Invalid move. Try again.")
+    
+    if is_solved(board):
+        print("Congratulations! You solved the puzzle!")
+
+if __name__ == "__main__":
+    main()

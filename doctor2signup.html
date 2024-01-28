@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up for Doctors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dde1e7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #dde1e7;
+            box-shadow: -3px -3px 7px #ffffff73,
+               2px 2px 5px rgba(94,104,121,0.288);
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #121313;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        select {
+            appearance: none;
+            padding: 10px;
+            background: #f7f7f7;
+            cursor: pointer;
+        }
+
+        button{
+  margin: 15px 0;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  line-height: 50px;
+  font-weight: 600;
+  background: #dde1e7;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #595959;
+  box-shadow: 2px 2px 5px #BABECC,
+             -5px -5px 10px #ffffff73;
+}
+        button[type="submit"]:hover {
+            background-color: #f7f3f3;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <h1 class="text-center text-primary">Sign up for Doctor</h1>
+                <form action="submit_doctor_info.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Doctor Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialization">Specialization:</label>
+                        <select class="form-control" id="specialization" name="specialization" required>
+                            <option value="neurologist">Neurologist</option>
+                            <option value="psychiatrist">Psychiatrist</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact_number">Contact Number:</label>
+                        <input type="tel" class="form-control" id="contact_number" name="contact_number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <textarea class="form-control" id="address" name="address" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select class="form-control" id="gender" name="gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Experience (in years):</label>
+                        <input type="number" class="form-control" id="experience" name="experience" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="degrees">Degrees:</label>
+                        <input type="text" class="form-control" id="degrees" name="degrees" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="degreeFile">Degree File:</label>
+                        <input type="file" class="form-control-file" id="degreeFile" name="degreeFile" accept=".pdf,.doc,.docx">
+                    </div>
+                    
+                    <div class="form-group text-center">
+                        <button onclick="location.href='main.html'"type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

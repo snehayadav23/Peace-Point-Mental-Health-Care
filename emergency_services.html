@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Services </title>
+    <!-- Include Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include Google Maps API with your API Key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <style>
+        /* Style for the header */
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Style for the main content */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style for the Google Map container */
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+
+        /* Style for the emergency button */
+        #emergencyButton {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #emergencyButton:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Emergency Services</h1>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Button to trigger emergency services -->
+                <button id="emergencyButton" class="btn btn-danger btn-block">Emergency Services</button>
+            </div>
+            <div class="col-md-6">
+                <!-- Add a card to display location details -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Location Details</h5>
+                        <p class="card-text"><strong>Latitude:  26.547967758840276</strong> <span id="latitude"></span></p>
+                        <p class="card-text"><strong>Longitude: 80.22769768527415</strong> <span id="longitude"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Google Map container -->
+        <iframe src="c:\Users\LENOVO\OneDrive\Pictures\Screenshots\Screenshot 2024-01-27 174629.png" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+   
+  
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Practice Session</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap">
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Set the background color and center content vertically and horizontally */
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      background-image: url(divider_press.svg);
+      text-align: center;
+    }
+
+    /* Style the container for the login form */
+    .content {
+      width: 330px;
+      padding: 40px 30px;
+      background: #d5e4e6;
+      border-radius: 10px;
+      box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .content:hover {
+      transform: scale(1.05);
+    }
+
+    /* Style the "Login" text */
+    .content .text {
+      font-size: 33px;
+      font-weight: 600;
+      margin-bottom: 35px;
+      color: #4f8db9;
+    }
+
+    /* Style the sign-in button */
+    button {
+      margin: 15px 0;
+      width: 100%;
+      height: 50px;
+      font-size: 18px;
+      line-height: 50px;
+      font-weight: 600;
+      background: #dde1e7;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: #595959;
+      box-shadow: 2px 2px 5px #BABECC, -5px -5px 10px #ffffff73;
+      transition: background 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background: #3498db;
+      color: #fff;
+    }
+
+    button:focus {
+      color: #3498db;
+      box-shadow: inset 2px 2px 5px #4865cd, inset -5px -5px 10px #ffffff73;
+    }
+
+    /* Style the "Sign Up" text and link */
+    .sign-up {
+      margin: 10px 0;
+      color: #595959;
+      font-size: 16px;
+    }
+
+    .sign-up a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    .sign-up a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="text">
+      Practice Session For
+    </div>
+    <div>
+      <button onclick="location.href = 'children.html';" class="float-left submit-button">Children</button>
+      <button onclick="location.href = 'teenager.html';" class="float-left submit-button">Teenager</button>
+      <button onclick="location.href = 'Oldage.html';" class="float-left submit-button">Oldage</button>
+    </div>
+  </div>
+</body>
+
+</html>

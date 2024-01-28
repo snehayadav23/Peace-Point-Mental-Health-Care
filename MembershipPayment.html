@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Payment form</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="payment.css">
+    <script src="payment.js" defer></script>
+  </head>
+
+  <body>
+    
+    <main>
+    
+      <form action="#" method="post">
+
+        <h1>Payment form</h1>
+
+        <section>        
+          <label for="cc-number">Card number</label>
+          <!-- Allow for spaces and for shorter and longer payment card numbers -->
+          <input id="cc-number" name="cc-number" autocomplete="cc-number" inputmode="numeric" maxlength="50" pattern="[\d ]{10,30}" required>
+        </section>
+
+        <section>        
+          <label for="cc-name">Name on card</label>
+          <input id="cc-name" name="cc-name" autocomplete="cc-name" maxlength="50" pattern="[\p{L} \-\.]+" required>
+        </section>
+        
+        <section id="cc-exp-csc">      
+          <div>
+            <label for="cc-exp">Expiry date</label>
+            <input id="cc-exp" name="cc-exp" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5" required>
+          </div> 
+          <div>
+            <label for="cc-csc">Security code</label>
+            <input id="cc-csc" name="cc-csc" inputmode="numeric" maxlength="3" required>
+            <div class="explanation">Back of card, last 3 digits</div>
+          </div>
+        </section>  
+
+        <!-- Alternative using select elements for expiry month and year 🤷🏻‍♂️ -->
+        
+        <section id="cc-exp-csc">
+          <div id="exp-month-year">
+            <label for="cc-exp-month">Expiry date</label>
+            <select id="cc-exp-month" name="cc-exp-month" autocomplete="cc-exp-month" placeholder="MM">
+              <option value="">MM</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+            <select id="cc-exp-year" name="cc-exp-year" autocomplete="cc-exp-year" placeholder="YY">
+              <option value="">YY</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+            </select>
+          </div>
+          <div>
+            <label for="cc-csc">Security code</label>
+            <input id="cc-csc" name="cc-csc" autocomplete="cc-csc" inputmode="numeric" maxlength="3" required>
+            <div class="explanation">Back of card, last 3 digits</div>
+          </div>
+        </section>
+        
+
+        <button id="complete-payment">Complete payment</button>
+        
+        <p>Enter data not be store and share.</p>
+        <a class ="complete-payment" href="successpage.html "></a>
+      </form>
+
+    
+    </main>
+    
+  </body>
+</html>

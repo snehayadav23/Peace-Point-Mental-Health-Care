@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mental Health Progress Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dde1e7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #eef0f2;
+            box-shadow: -3px -3px 7px #ffffff73,
+               2px 2px 5px rgba(94,104,121,0.288);
+            border-radius: 15px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+        }
+        select, .goal-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .goal-list {
+            list-style: none;
+            padding: 0;
+        }
+        .goal-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #e1d2d2;
+            margin-bottom: 5px;
+        }
+      
+        .delete-btn {
+            background-color: #7e0505;
+            color: #f0e7e7;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+        #clock{
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            text-align: right;
+            margin: 5px;
+            padding-right: 10px;
+            background-color: rgb(181, 179, 179);
+            color: black;
+            width: px;
+        }
+        .bg {
+            filter: blur(6px);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        } 
+    </style>
+</head>
+<body>
+    <img class="bg" src="eggface.webp">
+    <div class="container">
+        <!-- <div id="clock"></div> -->
+        <h1>Mental Health Progress Tracker</h1>
+        <h2>Set Your Goals:</h2>
+        <font size="12">
+            <select id="goalSelect" class="goal-input" placeholder="Choose Goal" autocomplete="off">
+            <option value="Mood">Mood</option>
+            <option value="Exercise">Exercise</option>
+            <option value="Mindfulness">Mindfulness</option>
+            <option value="Sleep">Sleep</option>
+            <option value="Nutrition">Nutrition</option>
+            <option value="Stress">Stress</option>
+            <option value="Socialize">Socialize</option>
+            <option value="Journal">Journal</option>
+            <option value="Hobbies">Hobbies</option>
+            <option value="Gratitude">Gratitude</option>
+            <option value="Learn">Learn</option>
+            <option value="Management">Management</option>
+            <option value="Self-Care">Self-Care</option>
+            <option value="Relaxation">Relaxation</option>
+            <option value="Breathing">Breathing</option>
+            <option value="Positivity">Positivity</option>
+            <option value="Creativity">Creativity</option>
+            <option value="Routine">Routine</option>
+            <option value="Help-Others">Help-Others</option>
+            <option value="Screen-Time">Screen-Time</option>
+            <option value="Nature">Nature</option>
+            <option value="Caffeine">Caffeine</option>
+            <option value="Hydration">Hydration</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Affirmations">Affirmations</option>
+            <option value="Volunteer">Volunteer</option>
+            <option value="Boundaries">Boundaries</option>
+            <option value="News">News</option>
+            <option value="Mindset">Mindset</option>
+            <option value="Steps">Steps</option>
+            <option value="Cycling">Cycling</option>
+            <option value="Calories">Calories</option>
+            </select>
+        </font>
+       
+        <button onclick="addGoal()" class="btn btn-primary">Add Goal</button>
+        <ul id="goalList" class="goal-list"></ul>
+        
+    </div>
+
+    <script>
+        // Load existing goals from local storage
+        const goals = JSON.parse(localStorage.getItem('goals')) || [];
+
+        function displayGoals() {
+            const goalList = document.getElementById('goalList');
+            goalList.innerHTML = '';
+
+            goals.forEach((goal, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'goal-list-item';
+
+                listItem.innerHTML = `
+                    <span>${goal}</span>
+                    <button class="delete-btn" onclick="deleteGoal(${index})">Delete</button>
+                `;
+
+                goalList.appendChild(listItem);
+            });
+        }
+
+        function addGoal() {
+            const goalSelect = document.getElementById('goalSelect');
+            const selectedGoal = goalSelect.value;
+
+            if (selectedGoal !== '') {
+                goals.push(selectedGoal);
+                localStorage.setItem('goals', JSON.stringify(goals));
+                goalSelect.value = '';
+                displayGoals();
+            }
+        }
+
+        function deleteGoal(index) {
+            goals.splice(index, 1);
+            localStorage.setItem('goals', JSON.stringify(goals));
+            displayGoals();
+        }
+
+        displayGoals();
+
+        //for clock
+
+//     function updateClock() {
+//     var now = new Date();
+//     var hours = now.getHours();
+//     var minutes = now.getMinutes();
+//     var seconds = now.getSeconds();
+
+//     // Add leading zero if needed
+//     hours = hours < 10 ? "0" + hours : hours;
+//     minutes = minutes < 10 ? "0" + minutes : minutes;
+//     seconds = seconds < 10 ? "0" + seconds : seconds;
+
+//     var timeString = hours + ":" + minutes + ":" + seconds;
+//     document.getElementById("clock").innerText = timeString;
+//   }
+
+//   // Update the clock every second
+//   setInterval(updateClock, 1000);
+
+//   // Initial call to display the clock immediately
+//   updateClock();
+    </script>
+</body>
+</html>
