@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/843e7637-73e2-4b53-bdbd-bf557bf29c25)![image](https://github.com/user-attachments/assets/735f7d8b-b9e7-451d-8a31-b2910ee9c504)We’re on a mission to uplift well-being through our cutting-edge Android and web-based application. Our design is tailored to empower users with an array of tools and features for stress management, mood tracking, and stress reduction techniques. Join us in promoting a happier, healthier, and more balanced life!
+
+We’re on a mission to uplift well-being through our cutting-edge Android and web-based application. Our design is tailored to empower users with an array of tools and features for stress management, mood tracking, and stress reduction techniques. Join us in promoting a happier, healthier, and more balanced life!
  Self-Assessment Tool: Users can assess their mental health with a user-friendly questionnaire. 
  
 **AI Chabot:** Immediate 24/7 emotional support and guidance.
